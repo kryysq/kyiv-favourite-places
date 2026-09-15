@@ -25,10 +25,48 @@ Django-застосунок для лабораторної роботи: осо
 
 ## Структура проєкту
 
+kyiv-favourite-places/
+│
+├── .venv/
+│
+├── kyiv_places/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── places/
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   └── urls.py
+│
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── places.html
+│   ├── detail.html
+│   └── form.html
+│
+├── static/
+│   └── style.css
+│
+├── manage.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 
-```
 
-
+models.py — місця та їхні дані.
+views.py — логіка сторінок і «Куди піти сьогодні?».
+forms.py — форма додавання + валідація.
+urls.py — адреси сторінок.
+base.html — спільні header/footer.
+home.html — головна.
+places.html — список місць.
+detail.html — повна інформація про місце.
+form.html — додавання нового місця.
+style.css — весь дизайн.
 
 ## Технології
 
