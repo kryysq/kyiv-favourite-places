@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -6,6 +7,7 @@
     <title>Улюблені місця Києва</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -13,7 +15,7 @@
 
             <p>Місця, де можна погуляти, поїсти та відпочити.</p>
 
-            <a href="#" class="button">Дізнатися більше</a>
+            <a href="{% url 'add_place' %}" class="button">Додати місце</a>
         </div>
     </header>
 </body>
