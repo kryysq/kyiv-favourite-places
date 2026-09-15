@@ -1,74 +1,55 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Улюблені місця Києва</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+{% extends "base.html" %}
 
-<body>
-    <header>
-        <div class="container">
-            <h1>Мої улюблені місця Києва</h1>
+{% block title %}
+Мої улюблені місця Києва
+{% endblock %}
 
-            <p>Місця, де можна погуляти, поїсти та відпочити.</p>
+{% block content %}
 
-           <div class="hero-buttons">
+<section class="hero">
+    <div class="container">
 
-            {% if user.is_authenticated %}
-                <a href="{% url 'add_place' %}" class="button">
-                    + Додати місце
-                </a>
-            {% else %}
-                <a href="{% url 'add_place' %}" class="button">
-                    + Додати місце
-                </a>
-            {% endif %}
-            
-            <a href="{% url 'register' %}" class="button button-light">
-                Зареєструватися
-            </a>
+    <h1>Мої улюблені місця Києва</h1>
 
-            <a href="{% url 'login' %}" class="button button-outline">
-                Увійти
-            </a>
-            
+    <p>
+        Місця, де можна погуляти, поїсти та відпочити.
+    </p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_place' %}" class="button">
+            Додати місце
+        </a>
+    {% endif %}
 
 </div>
 
-        </div>
-    </header>
+</section>
 
-        <main>
-        <div class="container">
+<section class="places-section">
+    <div class="container">
 
-            <h2>Мої місця</h2>
+    <h2>Мої місця</h2>
 
-            {% if places %}
+    {% if places %}
 
-                <div class="places-list">
+        <div class="places-list">
 
-                    {% for place in places %}
-
-                        {% include 'places/place_card.html' with place=place %}
-
-                    {% endfor %}
-
-                </div>
-
-            {% else %}
-
-                <p>
-                    У вас ще немає улюблених місць.
-                </p>
-
-            {% endif %}
+            {% for place in places %}
+                {% include 'places/place_card.html' with place=place %}
+            {% endfor %}
 
         </div>
-    </main>
 
-    
-</body>
-</html>
+    {% else %}
+
+        <p class="empty-state">
+            У вас ще немає улюблених місць.
+        </p>
+
+    {% endif %}
+
+</div>
+
+</section>
+
+{% endblock %}

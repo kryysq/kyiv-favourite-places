@@ -1,49 +1,32 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="uk">
+{% block title %}
+Вхід — Kyiv Places
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
+{% block content %}
 
-    <title>Вхід</title>
+<div class="container">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+    <h1>Вхід</h1>
 
-<body>
+    <form method="post">
 
-    <header>
-        <div class="container">
-            <h1>Вхід</h1>
-        </div>
-    </header>
+        {% csrf_token %}
 
-    <main>
-        <div class="container">
+        {{ form.as_p }}
 
-            <form method="post">
+        <button type="submit" class="button">
+            Увійти
+        </button>
 
-                {% csrf_token %}
+    </form>
 
-                {{ form.as_p }}
+    <p>
+        Немає акаунта?
+        <a href="{% url 'register' %}">Зареєструватися</a>
+    </p>
 
-                <button type="submit" class="button">
-                    Увійти
-                </button>
+</div>
 
-            </form>
-
-            <p>
-                Немає акаунта?
-                <a href="{% url 'register' %}">
-                    Зареєструватися
-                </a>
-            </p>
-
-        </div>
-    </main>
-
-</body>
-
-</html>
+{% endblock %}

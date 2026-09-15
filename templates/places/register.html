@@ -1,49 +1,32 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="uk">
+{% block title %}
+Реєстрація — Kyiv Places
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
+{% block content %}
 
-    <title>Реєстрація</title>
+<div class="container">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+    <h1>Реєстрація</h1>
 
-<body>
+    <form method="post">
 
-    <header>
-        <div class="container">
-            <h1>Реєстрація</h1>
-        </div>
-    </header>
+        {% csrf_token %}
 
-    <main>
-        <div class="container">
+        {{ form.as_p }}
 
-            <form method="post">
+        <button type="submit" class="button">
+            Зареєструватися
+        </button>
 
-                {% csrf_token %}
+    </form>
 
-                {{ form.as_p }}
+    <p>
+        Вже є акаунт?
+        <a href="{% url 'login' %}">Увійти</a>
+    </p>
 
-                <button type="submit" class="button">
-                    Зареєструватися
-                </button>
+</div>
 
-            </form>
-
-            <p>
-                Вже маєте акаунт?
-                <a href="{% url 'login' %}">
-                    Увійти
-                </a>
-            </p>
-
-        </div>
-    </main>
-
-</body>
-
-</html>
+{% endblock %}

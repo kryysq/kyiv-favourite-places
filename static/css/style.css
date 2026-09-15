@@ -164,3 +164,99 @@ form .button {
 .place-card p {
     margin-bottom: 8px;
 }
+
+.top-buttons {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    display: flex;
+    gap: 10px;
+}
+
+.top-button {
+    padding: 9px 16px;
+    background: #1f4f82;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.top-button:hover {
+    background: #163b62;
+}
+
+.top-login {
+    background: white;
+    color: #1f4f82;
+    border: 1px solid #1f4f82;
+}
+
+.top-login:hover {
+    background: #1f4f82;
+    color: white;
+}
+
+.site-header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 18px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #1f4f82;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #1f4f82;
+}
+
+.hero {
+    padding: 70px 0;
+    text-align: center;
+    background: #e8f0f8;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.places-section {
+    padding: 50px 0;
+}
+
+.places-section h2 {
+    margin-bottom: 25px;
+}
+
+.site-footer {
+    margin-top: 50px;
+    padding: 25px;
+    background: #1f2933;
+    color: white;
+    text-align: center;
+}

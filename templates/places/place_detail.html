@@ -1,69 +1,49 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="uk">
+{% block title %}
+{{ place.name }} — Kyiv Places
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-    <title>{{ place.name }}</title>
+<div class="container">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+    <article class="place-card">
 
-<body>
+        <h1>{{ place.name }}</h1>
 
-    <header>
-        <div class="container">
-            <h1>{{ place.name }}</h1>
+        <p>
+            <strong>Опис:</strong>
+            {{ place.description }}
+        </p>
 
-            <a href="{% url 'home' %}">
-                ← Назад до місць
-            </a>
-        </div>
-    </header>
+        <p>
+            <strong>Тип:</strong>
+            {{ place.get_place_type_display }}
+        </p>
 
-    <main>
-        <div class="container">
+        <p>
+            <strong>Локація:</strong>
 
-            <article class="place-card">
+            {% if place.address %}
+                {{ place.address }}
+            {% else %}
+                Secret place👀
+            {% endif %}
+        </p>
 
-                <p>
-                    <strong>Опис:</strong>
-                    {{ place.description }}
-                </p>
+        <p>
+            <strong>Рейтинг:</strong>
+            {{ place.rating }}/5
+        </p>
 
-                <p>
-                    <strong>Тип:</strong>
-                    {{ place.get_place_type_display }}
-                </p>
+        <p>
+            <strong>Додано:</strong>
+            {{ place.created_at|date:"d.m.Y" }}
+        </p>
 
-                <p>
-                    <strong>Локація:</strong>
+    </article>
 
-                    {% if place.address %}
-                        {{ place.address }}
-                    {% else %}
-                        Secret place👀
-                    {% endif %}
-                </p>
+</div>
 
-                <p>
-                    <strong>Рейтинг:</strong>
-                    {{ place.rating }}/5
-                </p>
-
-                <p>
-                    <strong>Додано:</strong>
-                    {{ place.created_at|date:"d.m.Y" }}
-                </p>
-
-            </article>
-
-        </div>
-    </main>
-
-</body>
-
-</html>
+{% endblock %}
