@@ -124,6 +124,15 @@ form .button {
     margin-bottom: 12px;
 }
 
+.place-card h3 a {
+    color: #222;
+    text-decoration: none;
+}
+
+.place-card h3 a:hover {
+    text-decoration: underline;
+}
+
 .place-card p {
     margin-bottom: 8px;
 }
