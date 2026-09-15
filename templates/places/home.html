@@ -18,5 +18,66 @@
             <a href="{% url 'add_place' %}" class="button">Додати місце</a>
         </div>
     </header>
+
+        <main>
+        <div class="container">
+
+            <h2>Мої місця</h2>
+
+            {% if places %}
+
+                <div class="places-list">
+
+                    {% for place in places %}
+
+                        <article class="place-card">
+
+                            <h3>{{ place.name }}</h3>
+
+                            <p>
+                                {{ place.description|truncatewords:15 }}
+                            </p>
+
+                            <p>
+                                <strong>Тип:</strong>
+                                {{ place.get_place_type_display }}
+                            </p>
+
+                            <p>
+                                <strong>Локація:</strong>
+
+                                {% if place.address %}
+                                    {{ place.address }}
+                                {% else %}
+                                    Secret place👀
+                                {% endif %}
+                            </p>
+
+                            <p>
+                                <strong>Рейтинг:</strong>
+                                {{ place.rating }}/5
+                            </p>
+
+                            <p>
+                                <strong>Додано:</strong>
+                                {{ place.created_at|date:"d.m.Y" }}
+                            </p>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>
+                    У вас ще немає улюблених місць.
+                </p>
+
+            {% endif %}
+
+        </div>
+    </main>
 </body>
 </html>
