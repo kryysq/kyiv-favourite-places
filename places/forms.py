@@ -1,12 +1,11 @@
 from django import forms
-
 from .models import Place
 
 
 class PlaceForm(forms.ModelForm):
     class Meta:
         model = Place
-        fields = ['name', 'description', 'address', 'rating']
+        fields = ['name', 'description', 'place_type', 'address', 'rating']
 
     def clean_name(self):
         name = self.cleaned_data['name']

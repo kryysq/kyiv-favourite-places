@@ -1,10 +1,9 @@
 from django.shortcuts import redirect, render
-
 from .forms import PlaceForm
 from .models import Place
 
 def home(request):
-    places = Place.objects.all()
+    places = Place.objects.filter(user=request.user)
 
     return render(
         request,
@@ -18,7 +17,10 @@ def add_place(request):
         form = PlaceForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            place = form.save(commit=False)
+            place.user = request.user
+            place.save()
+            
             return redirect('home')
     else:
         form = PlaceForm()
