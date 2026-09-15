@@ -3,7 +3,10 @@ from .forms import PlaceForm
 from .models import Place
 
 def home(request):
-    places = Place.objects.filter(user=request.user)
+    if request.user.is_authenticated:
+        places = Place.objects.filter(user=request.user)
+    else:
+        places = Place.objects.none()
 
     return render(
         request,

@@ -1,9 +1,8 @@
-from django.urls import path
-from .views import home, add_place
+from django.contrib import admin
+from django.urls import include, path
 
 
 urlpatterns = [
-    path('', home, name='home'),
-    
-    path('add/', add_place, name='add_place'),
+    path('admin/', admin.site.urls),
+    path('', include('places.urls')),
 ]
