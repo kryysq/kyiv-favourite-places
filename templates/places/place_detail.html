@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ place.name }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>{{ place.name }}</h1>
+
+            <a href="{% url 'home' %}">
+                ← Назад до місць
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <article class="place-card">
+
+                <p>
+                    <strong>Опис:</strong>
+                    {{ place.description }}
+                </p>
+
+                <p>
+                    <strong>Тип:</strong>
+                    {{ place.get_place_type_display }}
+                </p>
+
+                <p>
+                    <strong>Локація:</strong>
+
+                    {% if place.address %}
+                        {{ place.address }}
+                    {% else %}
+                        Secret place👀
+                    {% endif %}
+                </p>
+
+                <p>
+                    <strong>Рейтинг:</strong>
+                    {{ place.rating }}/5
+                </p>
+
+                <p>
+                    <strong>Додано:</strong>
+                    {{ place.created_at|date:"d.m.Y" }}
+                </p>
+
+            </article>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

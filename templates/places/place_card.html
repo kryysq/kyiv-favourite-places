@@ -35,4 +35,12 @@
         {{ place.created_at|date:"d.m.Y" }}
     </p>
 
+    <p class="place-type">
+    {{ place.get_place_type_display }}
+    </p>
+    
+    <p class="place-rating">
+        ⭐ {{ place.rating }}/5
+    </p>
+
 </article>

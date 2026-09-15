@@ -46,6 +46,34 @@ h1 {
     background: #444;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.button-light {
+    background: #ffffff;
+    color: #1f4f82;
+    border: 1px solid #1f4f82;
+}
+
+.button-light:hover {
+    background: #f0f5fa;
+}
+
+.button-outline {
+    background: transparent;
+    color: #1f4f82;
+    border: 1px solid #1f4f82;
+}
+
+.button-outline:hover {
+    background: #1f4f82;
+    color: #ffffff;
+}
+
 
 /* Form */
 
@@ -110,7 +138,7 @@ form .button {
 .places-list {
     display: grid;
     gap: 20px;
-    margin-top: 25px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .place-card {
